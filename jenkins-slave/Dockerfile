@@ -8,6 +8,5 @@ RUN  curl --create-dirs -sSLo /usr/share/jenkins/slave.jar \
 COPY jenkins-slave /usr/local/bin/jenkins-slave
 ENTRYPOINT ["/usr/local/bin/jenkins-slave"]
 
-USER jenkins
 VOLUME /home/jenkins
 WORKDIR /home/jenkins
