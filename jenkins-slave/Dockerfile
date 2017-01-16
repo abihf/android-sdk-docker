@@ -5,4 +5,10 @@ RUN  curl --create-dirs -sSLo /usr/share/jenkins/slave.jar \
   && chmod 755 /usr/share/jenkins \
   && chmod 644 /usr/share/jenkins/slave.jar \
   && useradd -m -s /bin/bash jenkins
- 
+
+COPY jenkins-slave /usr/local/bin/jenkins-slave
+ENTRYPOINT ["/usr/local/bin/jenkins-slave"]
+
+USER jenkins
+VOLUME /home/jenkins
+WORKDIR /home/jenkins
